@@ -1,104 +1,68 @@
-# agents/models.py
-
 from django.db import models
 
 
-# Customer Model
-class Customer(models.Model):
+class Editor(models.Model):
+
     name = models.CharField(max_length=100)
-    brand_name = models.CharField(max_length=100)
-    phone = models.CharField(max_length=15)
-    email = models.EmailField()
 
-    def __str__(self):
-        return self.brand_name
+    role = models.CharField(max_length=100)
 
+    bio = models.TextField()
 
-# Project Model
-class Project(models.Model):
+    image = models.ImageField(upload_to='editors/')
 
-    STATUS_CHOICES = (
-        ('Pending', 'Pending'),
-        ('Collecting', 'Collecting'),
-        ('Editing', 'Editing'),
-        ('Completed', 'Completed'),
+    instagram = models.URLField()
+
+    posts = models.CharField(max_length=20, default='0')
+
+    followers = models.CharField(max_length=20, default='0')
+
+    following = models.CharField(max_length=20, default='0')
+
+    project_image = models.ImageField(
+        upload_to='projects/images/',
+        blank=True,
+        null=True
     )
 
-    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
+    project_video = models.FileField(
+        upload_to='projects/videos/',
+        blank=True,
+        null=True
+    )
 
-    project_name = models.CharField(max_length=200)
-
-    description = models.TextField()
-
-    status = models.CharField(
-        max_length=20,
-        choices=STATUS_CHOICES,
-        default='Pending'
+    project_description = models.TextField(
+        blank=True,
+        null=True
     )
 
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.project_name
+        return self.name
 
 
-# Media Upload Model
-class Media(models.Model):
+class Contact(models.Model):
 
-    MEDIA_TYPE = (
-        ('Photo', 'Photo'),
-        ('Video', 'Video'),
-    )
+    name = models.CharField(max_length=100)
 
-    project = models.ForeignKey(Project, on_delete=models.CASCADE)
+    email = models.EmailField()
 
-    media_type = models.CharField(
-        max_length=10,
-        choices=MEDIA_TYPE
-    )
-
-    file = models.FileField(upload_to='media_files/')
-
-    uploaded_at = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return self.media_type
-
-
-# Edited Content Model
-class EditedContent(models.Model):
-
-    project = models.ForeignKey(Project, on_delete=models.CASCADE)
-
-    edited_video = models.FileField(upload_to='edited_videos/')
-
-    caption = models.TextField()
-
-    uploaded_at = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return self.project.project_name
-
-
-# Social Media Post Model
-class SocialMediaPost(models.Model):
-
-    PLATFORM_CHOICES = (
-        ('Instagram', 'Instagram'),
-        ('Facebook', 'Facebook'),
-        ('YouTube', 'YouTube'),
-    )
-
-    project = models.ForeignKey(Project, on_delete=models.CASCADE)
-
-    platform = models.CharField(
+    phone = models.CharField(
         max_length=20,
-        choices=PLATFORM_CHOICES
+        blank=True,
+        null=True
     )
 
-    post_link = models.URLField()
+    subject = models.CharField(
+        max_length=200,
+        blank=True,
+        null=True
+    )
 
-    posted_date = models.DateField()
+    message = models.TextField()
+
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.platform
+        return self.name

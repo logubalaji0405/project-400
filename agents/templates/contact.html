@@ -1,258 +1,342 @@
-
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
-.contact-hero{
-    background: linear-gradient(135deg,#0d6efd,#6610f2);
-    color:white;
-    padding:80px 0;
+:root{
+--primary:#2563eb;
+--secondary:#7c3aed;
+--dark:#0f172a;
+--light:#f8fafc;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:#f8fafc;
+margin:0;
+padding:0;
+}
+
+/* HERO */
+
+.hero{
+background:linear-gradient(135deg,#2563eb,#7c3aed);
+color:white;
+text-align:center;
+padding:120px 0;
+}
+
+.hero h1{
+font-size:60px;
+font-weight:800;
+margin-bottom:15px;
+}
+
+.hero p{
+font-size:20px;
+opacity:.9;
+}
+
+/* CONTACT */
+
+.contact-section{
+padding:80px 0;
 }
 
 .contact-card{
-    border:none;
-    border-radius:20px;
-    transition:.3s;
-    height:100%;
-}
-
-.contact-card:hover{
-    transform:translateY(-8px);
-}
-
-.icon-circle{
-    width:70px;
-    height:70px;
-    background:#0d6efd;
-    color:white;
-    font-size:28px;
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    margin:auto;
-}
-
-.contact-form{
-    background:white;
-    border-radius:20px;
-    padding:40px;
-    box-shadow:0 10px 30px rgba(0,0,0,.1);
-}
-
-.form-control{
-    border-radius:12px;
-    padding:12px;
-}
-
-.btn-contact{
-    padding:12px 35px;
-    border-radius:12px;
-    font-weight:600;
+background:#fff;
+border-radius:25px;
+overflow:hidden;
+box-shadow:0 15px 40px rgba(0,0,0,.1);
 }
 
 .contact-info{
-    background:#f8f9fa;
+background:#0f172a;
+color:white;
+padding:50px;
+height:100%;
+}
+
+.contact-info h3{
+font-weight:700;
+margin-bottom:40px;
+}
+
+.info-item{
+display:flex;
+gap:15px;
+margin-bottom:30px;
+}
+
+.info-item i{
+width:50px;
+height:50px;
+border-radius:50%;
+background:rgba(255,255,255,.1);
+display:flex;
+align-items:center;
+justify-content:center;
+color:#60a5fa;
+font-size:20px;
+}
+
+.contact-form{
+padding:50px;
+}
+
+.contact-form h2{
+font-weight:700;
+margin-bottom:30px;
+}
+
+.contact-form label{
+font-weight:600;
+margin-bottom:8px;
+}
+
+.form-control{
+width:100%;
+border:1px solid #cbd5e1;
+border-radius:12px;
+padding:12px;
+margin-top:5px;
+}
+
+.form-control:focus{
+outline:none;
+border-color:#2563eb;
+box-shadow:0 0 0 3px rgba(37,99,235,.15);
+}
+
+.btn-send{
+width:100%;
+padding:14px;
+border:none;
+border-radius:12px;
+background:linear-gradient(135deg,#2563eb,#7c3aed);
+color:white;
+font-size:16px;
+font-weight:600;
+transition:.3s;
+}
+
+.btn-send:hover{
+transform:translateY(-3px);
+}
+
+/* ACTIVITY */
+
+.activity-section{
+padding:80px 0;
+}
+
+.activity-card{
+background:white;
+border-radius:20px;
+padding:30px;
+text-align:center;
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+transition:.3s;
+height:100%;
+}
+
+.activity-card:hover{
+transform:translateY(-10px);
+}
+
+.activity-icon{
+font-size:50px;
+color:#2563eb;
+margin-bottom:20px;
+}
+
+.activity-card h4{
+font-weight:700;
+margin-bottom:15px;
+}
+
+/* FOOTER */
+
+.footer{
+background:#0f172a;
+color:white;
+text-align:center;
+padding:25px;
+margin-top:50px;
+}
+
+.footer p{
+margin:0;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+
+.hero{
+    padding:80px 20px;
+}
+
+.hero h1{
+    font-size:40px;
+}
+
+.contact-info,
+.contact-form{
+    padding:30px;
+}
+
+
 }
 
 </style>
 
-<!-- Hero Section -->
-<section class="contact-hero">
+<!-- Hero -->
 
-    <div class="container text-center">
-
-        <h1 class="display-4 fw-bold">
-            Contact Us
-        </h1>
-
-        <p class="lead">
-            Let's discuss your next project and grow your business together.
-        </p>
-
+<section class="hero">
+    <div class="container">
+        <h1>Contact Us</h1>
+        <p class="lead">Let's Build Something Amazing Together</p>
     </div>
-
 </section>
 
-<!-- Contact Info -->
-<section class="contact-info py-5">
+<!-- Contact Section -->
 
+<section class="contact-section">
     <div class="container">
 
-        <div class="row g-4">
+```
+    <div class="row contact-card">
 
-            <div class="col-md-4">
+        <div class="col-lg-4 contact-info">
 
-                <div class="card contact-card shadow p-4 text-center">
+            <h3>Get In Touch</h3>
 
-                    <div class="icon-circle mb-3">
-                        📞
-                    </div>
-
-                    <h5>Phone</h5>
-
-                    <p class="text-muted mb-0">
-                        +91 98765 43210
-                    </p>
-
+            <div class="info-item">
+                <i class="fas fa-phone"></i>
+                <div>
+                    <h6>Phone</h6>
+                    <p>+91 9876543210</p>
                 </div>
-
             </div>
 
-            <div class="col-md-4">
-
-                <div class="card contact-card shadow p-4 text-center">
-
-                    <div class="icon-circle mb-3">
-                        ✉️
-                    </div>
-
-                    <h5>Email</h5>
-
-                    <p class="text-muted mb-0">
-                        info@project400.com
-                    </p>
-
+            <div class="info-item">
+                <i class="fas fa-envelope"></i>
+                <div>
+                    <h6>Email</h6>
+                    <p>project400@gmail.com</p>
                 </div>
-
             </div>
 
-            <div class="col-md-4">
+            <div class="info-item">
+                <i class="fas fa-location-dot"></i>
+                <div>
+                    <h6>Location</h6>
+                    <p>Coimbatore, Tamil Nadu</p>
+                </div>
+            </div>
 
-                <div class="card contact-card shadow p-4 text-center">
+        </div>
 
-                    <div class="icon-circle mb-3">
-                        📍
-                    </div>
+        <div class="col-lg-8 contact-form">
 
-                    <h5>Location</h5>
+            <h2>Send Message</h2>
 
-                    <p class="text-muted mb-0">
-                        Chennai, Tamil Nadu, India
-                    </p>
+            <form method="POST">
+                {% csrf_token %}
 
+                <div class="mb-3">
+                    <label>Name</label>
+                    {{ form.name }}
                 </div>
 
-            </div>
+                <div class="mb-3">
+                    <label>Email</label>
+                    {{ form.email }}
+                </div>
+
+                <div class="mb-3">
+                    <label>Phone</label>
+                    {{ form.phone }}
+                </div>
+
+                <div class="mb-3">
+                    <label>Message</label>
+                    {{ form.message }}
+                </div>
+
+                <button type="submit" class="btn-send">
+                    <i class="fas fa-paper-plane"></i>
+                    Send Message
+                </button>
+
+            </form>
 
         </div>
 
     </div>
 
+</div>
+```
+
 </section>
 
-<!-- Contact Form -->
-<section class="py-5">
+<!-- Activities -->
 
+<section class="activity-section">
     <div class="container">
 
-        <div class="row justify-content-center">
+```
+    <div class="text-center mb-5">
+        <h2 class="fw-bold">Our Activities</h2>
+        <p>Helping Creators & Clients Grow Together</p>
+    </div>
 
-            <div class="col-lg-8">
+    <div class="row g-4">
 
-                <div class="contact-form">
-
-                    <h2 class="text-center mb-4">
-                        Send Us a Message
-                    </h2>
-
-                    <form method="post">
-
-                        {% csrf_token %}
-
-                        <div class="row">
-
-                            <div class="col-md-6 mb-3">
-
-                                <input
-                                type="text"
-                                name="name"
-                                class="form-control"
-                                placeholder="Your Name"
-                                required>
-
-                            </div>
-
-                            <div class="col-md-6 mb-3">
-
-                                <input
-                                type="email"
-                                name="email"
-                                class="form-control"
-                                placeholder="Your Email"
-                                required>
-
-                            </div>
-
-                        </div>
-
-                        <div class="mb-3">
-
-                            <input
-                            type="text"
-                            name="subject"
-                            class="form-control"
-                            placeholder="Subject">
-
-                        </div>
-
-                        <div class="mb-3">
-
-                            <textarea
-                            rows="6"
-                            name="message"
-                            class="form-control"
-                            placeholder="Your Message"
-                            required></textarea>
-
-                        </div>
-
-                        <div class="text-center">
-
-                            <button
-                            type="submit"
-                            class="btn btn-primary btn-contact">
-
-                                Send Message
-
-                            </button>
-
-                        </div>
-
-                    </form>
-
+        <div class="col-md-4">
+            <div class="activity-card">
+                <div class="activity-icon">
+                    <i class="fas fa-user-tie"></i>
                 </div>
-
+                <h4>Creator Profiles</h4>
+                <p>Build verified professional creator profiles.</p>
             </div>
+        </div>
 
+        <div class="col-md-4">
+            <div class="activity-card">
+                <div class="activity-icon">
+                    <i class="fas fa-ranking-star"></i>
+                </div>
+                <h4>Ranking System</h4>
+                <p>Creators earn ranks through quality work.</p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="activity-card">
+                <div class="activity-icon">
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <h4>Project Matching</h4>
+                <p>Clients find the right creators easily.</p>
+            </div>
         </div>
 
     </div>
 
-</section>
-
-<!-- CTA -->
-<section class="py-5 bg-dark text-white text-center">
-
-    <div class="container">
-
-        <h2>
-            Ready To Start Your Project?
-        </h2>
-
-        <p class="lead">
-            We are here to help your brand grow online.
-        </p>
-
-        <a href="#"
-           class="btn btn-primary btn-lg">
-            Get Free Consultation
-        </a>
-
-    </div>
+</div>
+```
 
 </section>
+
+<footer class="footer">
+    <p>© 2026 Project 400. All Rights Reserved.</p>
+</footer>
 
 {% endblock %}

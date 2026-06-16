@@ -1,0 +1,334 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+
+/* =========================
+GOOGLE FONT
+========================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#020617;
+    overflow-x:hidden;
+}
+
+/* =========================
+BACKGROUND ANIMATION
+========================= */
+
+.bg-animation{
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    overflow:hidden;
+    z-index:-1;
+}
+
+.bg-animation span{
+    position:absolute;
+    display:block;
+    width:25px;
+    height:25px;
+    background:rgba(255,255,255,0.05);
+    animation:animate 20s linear infinite;
+    bottom:-150px;
+    border-radius:50%;
+}
+
+.bg-animation span:nth-child(1){
+    left:10%;
+    width:80px;
+    height:80px;
+    animation-delay:0s;
+}
+
+.bg-animation span:nth-child(2){
+    left:25%;
+    width:30px;
+    height:30px;
+    animation-delay:2s;
+    animation-duration:12s;
+}
+
+.bg-animation span:nth-child(3){
+    left:40%;
+    width:100px;
+    height:100px;
+    animation-delay:4s;
+}
+
+.bg-animation span:nth-child(4){
+    left:55%;
+    width:50px;
+    height:50px;
+    animation-delay:0s;
+    animation-duration:18s;
+}
+
+.bg-animation span:nth-child(5){
+    left:70%;
+    width:90px;
+    height:90px;
+    animation-delay:3s;
+}
+
+.bg-animation span:nth-child(6){
+    left:85%;
+    width:40px;
+    height:40px;
+    animation-delay:7s;
+}
+
+@keyframes animate{
+    0%{
+        transform:translateY(0) rotate(0deg);
+        opacity:1;
+    }
+
+    100%{
+        transform:translateY(-1000px) rotate(720deg);
+        opacity:0;
+    }
+}
+
+/* =========================
+FORM SECTION
+========================= */
+
+.form-section{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:80px 20px;
+}
+
+.form-box{
+    width:100%;
+    max-width:900px;
+    padding:50px;
+    border-radius:35px;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(18px);
+    box-shadow:0 20px 50px rgba(0,0,0,.5);
+    border:1px solid rgba(255,255,255,0.1);
+    animation:fadeUp 1s ease;
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* =========================
+TITLE
+========================= */
+
+.form-title{
+    color:white;
+    font-size:3rem;
+    font-weight:800;
+    text-align:center;
+}
+
+.form-subtitle{
+    text-align:center;
+    color:#cbd5e1;
+    margin-top:15px;
+    margin-bottom:40px;
+    font-size:1.1rem;
+}
+
+/* =========================
+FORM
+========================= */
+
+form p{
+    margin-bottom:25px;
+}
+
+form label{
+    display:block;
+    color:white;
+    margin-bottom:10px;
+    font-weight:600;
+}
+
+form input,
+form textarea,
+form select{
+    width:100%;
+    padding:16px 20px;
+    border:none;
+    border-radius:15px;
+    background:rgba(255,255,255,.1);
+    color:white;
+    outline:none;
+    transition:.4s;
+}
+
+form textarea{
+    min-height:120px;
+}
+
+form input:focus,
+form textarea:focus,
+form select:focus{
+    background:rgba(255,255,255,.15);
+    transform:scale(1.01);
+    box-shadow:0 0 15px rgba(99,102,241,.5);
+}
+
+/* =========================
+FILE INPUT
+========================= */
+
+input[type="file"]{
+    padding:14px;
+    background:rgba(255,255,255,.08);
+    border:2px dashed rgba(255,255,255,.2);
+}
+
+/* =========================
+BUTTON
+========================= */
+
+.btn-save{
+    width:100%;
+    padding:18px;
+    border:none;
+    border-radius:60px;
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    color:white;
+    font-size:1.1rem;
+    font-weight:700;
+    margin-top:20px;
+    transition:.4s;
+}
+
+.btn-save:hover{
+    transform:translateY(-5px);
+    box-shadow:0 15px 30px rgba(124,58,237,.4);
+}
+
+/* =========================
+TOP ICON
+========================= */
+
+.form-icon{
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    margin:auto;
+    margin-bottom:30px;
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:40px;
+    color:white;
+    animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+    0%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.08);
+    }
+
+    100%{
+        transform:scale(1);
+    }
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+    .form-box{
+        padding:30px 20px;
+    }
+
+    .form-title{
+        font-size:2rem;
+    }
+
+}
+
+</style>
+
+<!-- BACKGROUND -->
+
+<div class="bg-animation">
+
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+
+</div>
+
+<!-- FORM SECTION -->
+
+<section class="form-section">
+
+    <div class="form-box">
+
+        <div class="form-icon">
+            ✨
+        </div>
+
+        <h1 class="form-title">
+            Add New Editor
+        </h1>
+
+        <p class="form-subtitle">
+            Upload editor profile, projects, videos and social details
+        </p>
+
+        <form method="POST" enctype="multipart/form-data">
+
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <button type="submit" class="btn-save">
+
+                Save Editor
+
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+{% endblock %}
+

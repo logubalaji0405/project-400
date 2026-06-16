@@ -3,307 +3,634 @@
 {% block content %}
 
 <style>
-/* Hero Section */
-.hero {
-    min-height: 90vh;
-    background: linear-gradient(
-        rgba(10, 25, 47, 0.8),
-        rgba(10, 25, 47, 0.8)
-    ),
-    url('https://images.unsplash.com/photo-1460925895917-afdab827c52f');
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
+
+/* =========================
+GOOGLE FONT
+========================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
 }
 
-.hero h1 {
-    font-size: 4rem;
-    font-weight: 800;
+body{
+    background:#020617;
+    overflow-x:hidden;
 }
 
-.hero p {
-    font-size: 1.3rem;
+/* =========================
+HERO SECTION
+========================= */
+
+.hero-section{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    padding:120px 0;
+    background:
+    linear-gradient(rgba(2,6,23,.85),rgba(2,6,23,.95)),
+    url('https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1400');
+    background-size:cover;
+    background-position:center;
 }
 
-/* Service Cards */
-.service-card {
-    border: none;
-    border-radius: 20px;
-    transition: all 0.4s ease;
-    overflow: hidden;
+.hero-title{
+    color:white;
+    font-size:4rem;
+    font-weight:800;
+    line-height:1.2;
 }
 
-.service-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(0,0,0,.15);
+.hero-text{
+    color:#cbd5e1;
+    font-size:1.2rem;
+    margin-top:25px;
+    line-height:1.8;
 }
 
-.service-icon {
-    width: 90px;
-    height: 90px;
-    background: #0d6efd;
-    color: white;
-    font-size: 35px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    margin: auto;
+.hero-btn{
+    display:inline-block;
+    margin-top:35px;
+    padding:14px 40px;
+    border-radius:50px;
+    text-decoration:none;
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    color:white;
+    font-weight:600;
+    margin-right:15px;
+    transition:.4s;
 }
 
-/* About Section */
-.about-section {
-    background: #f8f9fa;
+.hero-btn:hover{
+    transform:translateY(-5px);
+    color:white;
 }
 
-.about-img {
-    border-radius: 20px;
-    width: 100%;
-    box-shadow: 0 10px 30px rgba(0,0,0,.1);
+.hero-btn-outline{
+    display:inline-block;
+    margin-top:35px;
+    padding:14px 40px;
+    border-radius:50px;
+    text-decoration:none;
+    border:2px solid white;
+    color:white;
+    font-weight:600;
+    transition:.4s;
 }
 
-/* Stats */
-.stats {
-    background: linear-gradient(135deg,#0d6efd,#6610f2);
-    color: white;
+.hero-btn-outline:hover{
+    background:white;
+    color:black;
 }
 
-.stat-box h2 {
-    font-size: 3rem;
-    font-weight: 700;
+.hero-image{
+    width:100%;
+    border-radius:30px;
+    box-shadow:0 20px 50px rgba(0,0,0,.5);
 }
 
-/* CTA */
-.cta {
-    background: #111827;
-    color: white;
-}
-
-.cta .btn {
-    padding: 12px 40px;
-    font-size: 18px;
-}
-
-/* Section Heading */
-.section-title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-}
-
-/* Responsive */
-@media(max-width:768px){
-
-.hero h1{
-    font-size:2.5rem;
-}
-
-.hero p{
-    font-size:1rem;
-}
+/* =========================
+SECTION TITLE
+========================= */
 
 .section-title{
-    font-size:2rem;
+    color:white;
+    text-align:center;
+    font-size:3rem;
+    font-weight:800;
+    margin-bottom:60px;
 }
 
+/* =========================
+PROFILE SECTION
+========================= */
+
+.profile-section{
+    padding:100px 0;
 }
+
+/* =========================
+PROFILE CARD
+========================= */
+
+.profile-card{
+    border:none;
+    border-radius:30px;
+    overflow:hidden;
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(18px);
+    transition:.5s;
+}
+
+.profile-card:hover{
+    transform:translateY(-15px);
+    box-shadow:0 20px 40px rgba(0,0,0,.4);
+}
+
+.profile-cover{
+    height:180px;
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+}
+
+.profile-img{
+    width:130px;
+    height:130px;
+    border-radius:50%;
+    object-fit:cover;
+    border:5px solid white;
+    margin-top:-65px;
+}
+
+.profile-name{
+    color:white;
+    font-size:1.5rem;
+    font-weight:700;
+}
+
+.profile-role{
+    color:#cbd5e1;
+}
+
+.follow-btn{
+    border:none;
+    padding:12px 35px;
+    border-radius:50px;
+    margin-top:20px;
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    color:white;
+    transition:.4s;
+}
+
+.follow-btn:hover{
+    transform:scale(1.05);
+}
+
+/* =========================
+SERVICES
+========================= */
+
+.service-section{
+    padding:100px 0;
+    background:#f8fafc;
+}
+
+.service-card{
+    border:none;
+    border-radius:25px;
+    transition:.5s;
+}
+
+.service-card:hover{
+    transform:translateY(-10px);
+}
+
+.service-icon{
+    width:90px;
+    height:90px;
+    border-radius:50%;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:35px;
+    color:white;
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+}
+
+/* =========================
+CTA SECTION
+========================= */
+
+.cta-section{
+    padding:100px 20px;
+    text-align:center;
+    background:
+    linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.8)),
+    url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1400');
+    background-size:cover;
+    background-position:center;
+}
+
+.cta-section h2{
+    color:white;
+    font-size:3rem;
+    font-weight:800;
+}
+
+.cta-section p{
+    color:#e2e8f0;
+    font-size:1.2rem;
+}
+
+.cta-btn{
+    display:inline-block;
+    margin-top:30px;
+    padding:15px 45px;
+    border-radius:50px;
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+}
+
+/* =========================
+MODAL
+========================= */
+
+.modal-content{
+    border:none;
+    border-radius:30px;
+    overflow:hidden;
+}
+
+.modal-header{
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    color:white;
+}
+
+.modal-img{
+    width:160px;
+    height:160px;
+    border-radius:50%;
+    object-fit:cover;
+    border:6px solid white;
+    margin-top:-80px;
+}
+
+/* =========================
+PROJECT
+========================= */
+
+.project-box{
+    background:#0f172a;
+    border-radius:20px;
+    overflow:hidden;
+    margin-top:40px;
+}
+
+.project-box img,
+.project-box video{
+    width:100%;
+}
+
+.project-content{
+    padding:25px;
+}
+
+.project-content h4{
+    color:white;
+}
+
+.project-content p{
+    color:#cbd5e1;
+}
+
+/* =========================
+FOOTER
+========================= */
+
+.footer{
+    padding:60px 20px;
+    text-align:center;
+    background:black;
+}
+
+.footer h3{
+    color:white;
+    font-weight:700;
+}
+
+.footer p{
+    color:#94a3b8;
+}
+
+.footer a{
+    color:#60a5fa;
+    text-decoration:none;
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+    .hero-title{
+        font-size:2.5rem;
+    }
+
+    .section-title{
+        font-size:2rem;
+    }
+
+}
+
 </style>
 
 <!-- HERO SECTION -->
-<section class="hero">
-    <div class="container text-center text-white">
 
-        <h1>
-            Transform Your Brand With Project 400
-        </h1>
+<section class="hero-section">
 
-        <p class="my-4">
-            Digital Marketing • Branding • Video Production
-        </p>
+    <div class="container">
 
-        <a href="/contact/" class="btn btn-primary btn-lg px-5">
-            Get Free Consultation
-        </a>
+        <div class="row align-items-center">
+
+            <div class="col-lg-6">
+
+                <h1 class="hero-title">
+                    Creative Digital Agency For Modern Brands
+                </h1>
+
+                <p class="hero-text">
+                    We create cinematic reels, premium branding and viral social media content for creators, influencers and businesses.
+                </p>
+
+                <a href="/add-editor/" class="hero-btn">
+                    get start -
+                </a>
+
+                <a href="/contact/" class="hero-btn-outline">
+                    Contact Us
+                </a>
+
+            </div>
+
+            <div class="col-lg-6 text-center">
+
+                <img
+                src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1200"
+                class="hero-image">
+
+            </div>
+
+        </div>
 
     </div>
+
+</section>
+
+<!-- EDITOR SECTION -->
+
+<section class="profile-section">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            Our Creative Editors
+        </h2>
+
+        <div class="row g-4">
+
+            {% for editor in editors %}
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="card profile-card h-100">
+
+                    <div class="profile-cover"></div>
+
+                    <div class="card-body text-center p-4">
+
+                        <img src="{{ editor.image.url }}" class="profile-img">
+
+                        <h3 class="profile-name mt-3">
+                            {{ editor.name }}
+                        </h3>
+
+                        <p class="profile-role">
+                            {{ editor.role }}
+                        </p>
+
+                        <div class="row mt-4">
+
+                            <div class="col-4">
+                                <h5 class="text-white">{{ editor.posts }}</h5>
+                                <small class="text-light">Posts</small>
+                            </div>
+
+                            <div class="col-4">
+                                <h5 class="text-white">{{ editor.followers }}</h5>
+                                <small class="text-light">Followers</small>
+                            </div>
+
+                            <div class="col-4">
+                                <h5 class="text-white">{{ editor.following }}</h5>
+                                <small class="text-light">Following</small>
+                            </div>
+
+                        </div>
+
+                        <button
+                        class="follow-btn"
+                        data-bs-toggle="modal"
+                        data-bs-target="#editorModal{{ editor.id }}">
+
+                            View Profile
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- MODAL -->
+
+            <div class="modal fade" id="editorModal{{ editor.id }}" tabindex="-1">
+
+                <div class="modal-dialog modal-xl modal-dialog-centered">
+
+                    <div class="modal-content">
+
+                        <div class="modal-header">
+
+                            <h5 class="modal-title">
+                                {{ editor.name }}
+                            </h5>
+
+                            <button
+                            type="button"
+                            class="btn-close btn-close-white"
+                            data-bs-dismiss="modal"></button>
+
+                        </div>
+
+                        <div class="modal-body text-center bg-dark p-5">
+
+                            <img src="{{ editor.image.url }}" class="modal-img">
+
+                            <h2 class="text-white mt-4">
+                                {{ editor.name }}
+                            </h2>
+
+                            <p class="text-light">
+                                {{ editor.role }}
+                            </p>
+
+                            <p class="text-light">
+                                {{ editor.bio }}
+                            </p>
+
+                            <!-- PROJECT IMAGE -->
+
+                            {% if editor.project_image %}
+
+                            <div class="project-box">
+
+                                <img src="{{ editor.project_image.url }}">
+
+                                <div class="project-content">
+
+                                    <h4>
+                                        Latest Project
+                                    </h4>
+
+                                    <p>
+                                        {{ editor.project_description }}
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                            {% endif %}
+
+                            <!-- PROJECT VIDEO -->
+
+                            {% if editor.project_video %}
+
+                            <div class="project-box">
+
+                                <video controls>
+
+                                    <source src="{{ editor.project_video.url }}">
+
+                                </video>
+
+                                <div class="project-content">
+
+                                    <h4>
+                                        Project Video
+                                    </h4>
+
+                                    <p>
+                                        {{ editor.project_description }}
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                            {% endif %}
+
+                            <a
+                            href="{{ editor.instagram }}"
+                            target="_blank"
+                            class="btn btn-primary mt-4 px-5 py-3 rounded-pill">
+
+                                Open Instagram
+
+                            </a>
+
+                        </div>
+
+                        <div class="modal-footer bg-black border-0">
+
+                            <p class="text-light m-0">
+                                © 2026 Project 400 • Creative Digital Agency
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
 </section>
 
 <!-- SERVICES -->
-<section class="py-5">
+
+<section class="service-section">
+
     <div class="container">
 
-        <h2 class="text-center section-title">
+        <h2 class="text-center fw-bold mb-5">
             Our Services
         </h2>
 
-        <div class="row g-4 mt-4">
+        <div class="row g-4">
 
             <div class="col-lg-4">
-                <div class="card service-card p-4 text-center shadow">
 
-                    <div class="service-icon mb-4">
-                        📱
-                    </div>
-
-                    <h4>Social Media Marketing</h4>
-
-                    <p class="text-muted">
-                        Grow your Instagram, Facebook, YouTube and attract more customers.
-                    </p>
-
-                </div>
-            </div>
-
-            <div class="col-lg-4">
-                <div class="card service-card p-4 text-center shadow">
+                <div class="card service-card p-5 text-center shadow">
 
                     <div class="service-icon mb-4">
                         🎬
                     </div>
 
-                    <h4>Video Production</h4>
+                    <h4>
+                        Video Editing
+                    </h4>
 
-                    <p class="text-muted">
-                        Professional video editing, reels, ads and promotional content.
+                    <p class="text-muted mt-3">
+                        Cinematic reels and professional videos.
                     </p>
 
                 </div>
+
             </div>
 
             <div class="col-lg-4">
-                <div class="card service-card p-4 text-center shadow">
+
+                <div class="card service-card p-5 text-center shadow">
+
+                    <div class="service-icon mb-4">
+                        📈
+                    </div>
+
+                    <h4>
+                        Social Media Growth
+                    </h4>
+
+                    <p class="text-muted mt-3">
+                        Increase followers and engagement organically.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-4">
+
+                <div class="card service-card p-5 text-center shadow">
 
                     <div class="service-icon mb-4">
                         🚀
                     </div>
 
-                    <h4>Brand Promotion</h4>
+                    <h4>
+                        Brand Promotion
+                    </h4>
 
-                    <p class="text-muted">
-                        Increase visibility, generate leads and boost business growth.
+                    <p class="text-muted mt-3">
+                        Premium digital branding for businesses.
                     </p>
 
                 </div>
-            </div>
 
-        </div>
-
-    </div>
-</section>
-
-<!-- ABOUT -->
-<section class="about-section py-5">
-    <div class="container">
-
-        <div class="row align-items-center">
-
-            <div class="col-lg-6 mb-4">
-
-                <img
-                src="https://images.unsplash.com/photo-1552664730-d307ca884978"
-                class="about-img"
-                alt="Project 400">
-
-            </div>
-
-            <div class="col-lg-6">
-
-                <h2 class="section-title">
-                    Why Choose Project 400?
-                </h2>
-
-                <p class="lead">
-                    We create powerful digital experiences that help brands
-                    stand out in today's competitive market.
-                </p>
-
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">✔ Experienced Marketing Team</li>
-                    <li class="list-group-item">✔ Creative Branding Solutions</li>
-                    <li class="list-group-item">✔ High Quality Video Production</li>
-                    <li class="list-group-item">✔ Result Driven Strategies</li>
-                    <li class="list-group-item">✔ Dedicated Customer Support</li>
-                </ul>
-
-            </div>
-
-        </div>
-
-    </div>
-</section>
-
-<!-- STATS -->
-<section class="stats py-5">
-
-    <div class="container">
-
-        <div class="row text-center">
-
-            <div class="col-md-3 stat-box">
-                <h2>500+</h2>
-                <p>Projects Completed</p>
-            </div>
-
-            <div class="col-md-3 stat-box">
-                <h2>200+</h2>
-                <p>Happy Clients</p>
-            </div>
-
-            <div class="col-md-3 stat-box">
-                <h2>10M+</h2>
-                <p>Reach Generated</p>
-            </div>
-
-            <div class="col-md-3 stat-box">
-                <h2>5+</h2>
-                <p>Years Experience</p>
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- TESTIMONIALS -->
-<section class="py-5">
-
-    <div class="container">
-
-        <h2 class="text-center section-title">
-            What Our Clients Say
-        </h2>
-
-        <div class="row g-4 mt-4">
-
-            <div class="col-md-4">
-                <div class="card shadow p-4">
-                    <p>
-                        "Amazing service and outstanding results.
-                        Highly recommended!"
-                    </p>
-                    <h5>- John Smith</h5>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="card shadow p-4">
-                    <p>
-                        "Our social media engagement doubled in just
-                        a few months."
-                    </p>
-                    <h5>- Sarah Lee</h5>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="card shadow p-4">
-                    <p>
-                        "Professional team with excellent creative ideas."
-                    </p>
-                    <h5>- Michael Brown</h5>
-                </div>
             </div>
 
         </div>
@@ -313,25 +640,28 @@
 </section>
 
 <!-- CTA -->
-<section class="cta py-5">
 
-    <div class="container text-center">
+<section class="cta-section">
 
-        <h2 class="mb-4">
-            Ready To Grow Your Business?
+    <div class="container">
+
+        <h2>
+            Ready To Grow Your Brand?
         </h2>
 
-        <p class="lead mb-4">
-            Let's build something amazing together.
+        <p class="mt-4">
+            Work with our professional editors and creative team today.
         </p>
 
-        <a href="/contact/" class="btn btn-primary btn-lg">
+        <a href="/contact/" class="cta-btn">
             Start Your Project
         </a>
 
     </div>
 
 </section>
+
+
 
 {% endblock %}
 
