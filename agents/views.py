@@ -78,21 +78,23 @@ from django.contrib.auth.decorators import login_required
 
 @login_required
 def add_like(request, pk):
-
-    if request.method == "POST":
-
+    try:
         editor = Editor.objects.get(id=pk)
 
-        Like.objects.create(editor=editor)
+        Like.objects.create(
+            editor=editor
+        )
 
         return JsonResponse({
             "success": True,
             "likes": editor.like_set.count()
         })
 
-    return JsonResponse({
-        "success": False
-    })
+    except Exception as e:
+        return JsonResponse({
+            "success": False,
+            "error": str(e)
+        }, status=500)
 
 
 def add_comment(request, pk):
