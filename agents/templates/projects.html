@@ -399,131 +399,90 @@ Open Instagram Profile
 </div>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+
 <script>
-$(document).on("click", ".like-btn", function () {
-    let btn = $(this);
-    let postId = btn.data("id");
-
-    $.ajax({
-        url: "/like/" + postId + "/",
-        type: "POST",
-        headers: {
-            "X-CSRFToken": "{{ csrf_token }}"
-        },
-        success: function (response) {
-
-            if (response.success) {
-                // update like count
-                btn.find(".like-count").text(response.likes);
-
-                // toggle red color
-                btn.find("i").css("color", "red");
-            }
-
-        },
-        error: function () {
-            alert("Error liking post");
-        }
-    });
-});
-</script>
-<script>
-    function getCookie(name){
-
+function getCookie(name) {
     let cookieValue = null;
 
-    if(document.cookie){
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
 
-        const cookies =
-        document.cookie.split(';');
-
-        for(let cookie of cookies){
-
+        for (let cookie of cookies) {
             cookie = cookie.trim();
 
-            if(cookie.startsWith(name + '=')){
-
-                cookieValue =
-                decodeURIComponent(
-                    cookie.substring(
-                        name.length + 1
-                    )
+            if (cookie.startsWith(name + '=')) {
+                cookieValue = decodeURIComponent(
+                    cookie.substring(name.length + 1)
                 );
-
+                break;
             }
-
         }
-
     }
 
     return cookieValue;
-
 }
 
-const csrftoken =
-getCookie('csrftoken');
+const csrftoken = getCookie('csrftoken');
 
-document
-.querySelectorAll('.like-btn')
-.forEach(function(btn){
+document.querySelectorAll('.like-btn').forEach(function(btn) {
 
-    btn.addEventListener(
-        'click',
-        function(){
+    btn.addEventListener('click', function(e) {
 
-            let id =
-            this.dataset.id;
+        e.preventDefault();
 
-            fetch(
-                '/like/' + id + '/',
-                {
-                    method:'POST',
-                    headers:{
-                        'X-CSRFToken':
-                        csrftoken
-                    }
-                }
-            )
+        let id = this.dataset.id;
+        let button = this;
 
-            .then(response => response.json())
+        fetch(`/like/${id}/`, {
+            method: 'POST',
+            headers: {
+                'X-CSRFToken': csrftoken,
+                'Content-Type': 'application/json'
+            }
+        })
 
-            .then(data => {
+        .then(response => response.json())
 
-                document
-                .getElementById(
-                    'like-count-' + id
-                )
-                .innerText =
-                data.likes;
+        .then(data => {
 
-                this.classList.add(
-                    'liked'
-                );
+            if (data.success) {
 
-                this.innerHTML =
-                '<i class="fas fa-heart"></i>';
+                document.getElementById(
+                    `like-count-${id}`
+                ).innerText = data.likes;
 
-            });
+                button.classList.add('liked');
 
+                button.innerHTML =
+                    '<i class="fas fa-heart"></i>';
+            }
+
+        })
+
+        .catch(error => {
+            console.error(error);
+            alert('Error liking post');
         });
+
+    });
 
 });
 
-function toggleComment(id){
+function toggleComment(id) {
 
-let box =
-document.getElementById(
-'comment-section-' + id
-);
+    let box =
+    document.getElementById(
+        `comment-section-${id}`
+    );
 
-if(box.style.display === "block"){
-    box.style.display = "none";
-}
-else{
-    box.style.display = "block";
-}
+    if (box.style.display === "block") {
+        box.style.display = "none";
+    } else {
+        box.style.display = "block";
+    }
 
 }
+
 
 </script>
 
