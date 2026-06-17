@@ -77,11 +77,14 @@ from django.template.loader import render_to_string
 from django.contrib.auth.decorators import login_required
 
 
-def add_like(request, pk):
-    try:
-        editor = Editor.objects.get(id=pk)
+from django.shortcuts import get_object_or_404
 
-        Like.objects.create(
+def add_like(request, pk):
+
+    try:
+        editor = get_object_or_404(Editor, id=pk)
+
+        like = Like.objects.create(
             editor=editor
         )
 
@@ -91,11 +94,11 @@ def add_like(request, pk):
         })
 
     except Exception as e:
+
         return JsonResponse({
             "success": False,
             "error": str(e)
         }, status=500)
-
 
 def add_comment(request, pk):
 
