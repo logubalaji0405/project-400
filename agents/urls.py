@@ -5,7 +5,9 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('add-editor/', views.add_editor, name='add_editor'),
     path('about/', views.about, name='about'),
-    path('gallery/', views.gallery, name='gallery'),
     path('contact/', views.contact, name='contact'),
-    path('instagram-live/', views.instagram_live, name='instagram_live'),
+
+    path('projects/', views.projects, name='projects'),
+    path('like/<int:pk>/', views.add_like, name='add_like'),
+path('comment/<int:pk>/', views.add_comment, name='add_comment'),
 ]

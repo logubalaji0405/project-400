@@ -1,22 +1,14 @@
 from django.db import models
 
-
 class Editor(models.Model):
-
     name = models.CharField(max_length=100)
-
     role = models.CharField(max_length=100)
-
     bio = models.TextField()
-
     image = models.ImageField(upload_to='editors/')
-
     instagram = models.URLField()
 
     posts = models.CharField(max_length=20, default='0')
-
     followers = models.CharField(max_length=20, default='0')
-
     following = models.CharField(max_length=20, default='0')
 
     project_image = models.ImageField(
@@ -42,24 +34,37 @@ class Editor(models.Model):
         return self.name
 
 
-class Contact(models.Model):
+class Like(models.Model):
+    editor = models.ForeignKey(
+        Editor,
+        on_delete=models.CASCADE
+    )
+
+    created_at = models.DateTimeField(
+        auto_now_add=True
+    )
+
+
+class Comment(models.Model):
+    editor = models.ForeignKey(
+        Editor,
+        on_delete=models.CASCADE
+    )
 
     name = models.CharField(max_length=100)
 
+    comment = models.TextField()
+
+    created_at = models.DateTimeField(
+        auto_now_add=True
+    )
+
+
+class Contact(models.Model):
+    name = models.CharField(max_length=100)
     email = models.EmailField()
-
-    phone = models.CharField(
-        max_length=20,
-        blank=True,
-        null=True
-    )
-
-    subject = models.CharField(
-        max_length=200,
-        blank=True,
-        null=True
-    )
-
+    phone = models.CharField(max_length=20, blank=True, null=True)
+    subject = models.CharField(max_length=200, blank=True, null=True)
     message = models.TextField()
 
     created_at = models.DateTimeField(auto_now_add=True)

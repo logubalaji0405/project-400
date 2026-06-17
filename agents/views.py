@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 
-from .models import Editor
+from .models import Editor, Like, Comment
 from .forms import EditorForm, ContactForm
+from django.shortcuts import render, get_object_or_404
 
 # Optional
 # from .instagram_tracker import get_followers
@@ -41,8 +42,6 @@ def about(request):
     return render(request, "about.html")
 
 
-def gallery(request):
-    return render(request, "gallery.html")
 
 
 def contact(request):
@@ -63,20 +62,58 @@ def contact(request):
     })
 
 
-def instagram_live(request):
 
-    # Temporary static data
-    data = [
-        {
-            'username': 'virat.kohli',
-            'followers': '270M'
-        },
-        {
-            'username': 'leomessi',
-            'followers': '505M'
-        }
-    ]
 
-    return render(request, 'instagram_live.html', {
-        'data': data
+def projects(request):
+    editors = Editor.objects.all()
+
+    return render(request, 'projects.html', {
+        'editors': editors
+    })
+
+
+from django.http import JsonResponse
+from django.template.loader import render_to_string
+
+def add_like(request, pk):
+
+    if request.method == "POST":
+
+        editor = Editor.objects.get(id=pk)
+
+        Like.objects.create(editor=editor)
+
+        return JsonResponse({
+            "success": True,
+            "likes": editor.like_set.count()
+        })
+
+    return JsonResponse({
+        "success": False
+    })
+
+
+def add_comment(request, pk):
+
+    editor = Editor.objects.get(id=pk)
+
+    Comment.objects.create(
+        editor=editor,
+        name=request.POST.get('name'),
+        comment=request.POST.get('comment')
+    )
+
+    comments = ""
+
+    for comment in editor.comment_set.all().order_by('-id'):
+
+        comments += f"""
+        <div class='mb-3'>
+            <strong>{comment.name}</strong><br>
+            {comment.comment}
+        </div>
+        """
+
+    return JsonResponse({
+        'comments': comments
     })
