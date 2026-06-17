@@ -76,7 +76,7 @@ from django.http import JsonResponse
 from django.template.loader import render_to_string
 from django.contrib.auth.decorators import login_required
 
-@login_required
+
 def add_like(request, pk):
     try:
         editor = Editor.objects.get(id=pk)
