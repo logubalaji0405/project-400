@@ -64,8 +64,7 @@ MIDDLEWARE = [
 # URLS
 # ==========================
 
-ROOT_URLCONF = 'your_project.urls'
-
+ROOT_URLCONF = 'project400.urls'
 
 # ==========================
 # TEMPLATES
@@ -97,7 +96,7 @@ TEMPLATES = [
 # WSGI
 # ==========================
 
-WSGI_APPLICATION = 'your_project.wsgi.application'
+WSGI_APPLICATION = 'project400.wsgi.application'
 
 
 # ==========================
