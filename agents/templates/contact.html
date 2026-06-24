@@ -6,337 +6,305 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
-:root{
---primary:#2563eb;
---secondary:#7c3aed;
---dark:#0f172a;
---light:#f8fafc;
-}
-
 body{
-font-family:'Poppins',sans-serif;
-background:#f8fafc;
-margin:0;
-padding:0;
+    font-family:'Poppins',sans-serif;
+    background:#0b0f1a;
+    color:white;
 }
 
 /* HERO */
-
 .hero{
-background:linear-gradient(135deg,#2563eb,#7c3aed);
-color:white;
-text-align:center;
-padding:120px 0;
+    background:linear-gradient(135deg,#0f172a,#1e1b4b,#312e81);
+    text-align:center;
+    padding:120px 20px;
+    position:relative;
+    overflow:hidden;
+}
+
+.hero::before{
+    content:'';
+    position:absolute;
+    width:300px;
+    height:300px;
+    background:rgba(99,102,241,.25);
+    border-radius:50%;
+    top:-80px;
+    right:-80px;
+    filter:blur(40px);
 }
 
 .hero h1{
-font-size:60px;
-font-weight:800;
-margin-bottom:15px;
+    font-size:55px;
+    font-weight:800;
 }
 
 .hero p{
-font-size:20px;
-opacity:.9;
+    opacity:.8;
 }
 
 /* CONTACT */
-
 .contact-section{
-padding:80px 0;
+    padding:80px 0;
 }
 
+/* GLASS CARD */
 .contact-card{
-background:#fff;
-border-radius:25px;
-overflow:hidden;
-box-shadow:0 15px 40px rgba(0,0,0,.1);
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(12px);
+    border-radius:25px;
+    overflow:hidden;
+    border:1px solid rgba(255,255,255,0.08);
 }
 
+/* LEFT PANEL */
 .contact-info{
-background:#0f172a;
-color:white;
-padding:50px;
-height:100%;
+    background:linear-gradient(135deg,#1e1b4b,#312e81);
+    padding:50px;
 }
 
 .contact-info h3{
-font-weight:700;
-margin-bottom:40px;
+    font-weight:700;
+    margin-bottom:35px;
 }
 
 .info-item{
-display:flex;
-gap:15px;
-margin-bottom:30px;
+    display:flex;
+    gap:15px;
+    margin-bottom:25px;
 }
 
 .info-item i{
-width:50px;
-height:50px;
-border-radius:50%;
-background:rgba(255,255,255,.1);
-display:flex;
-align-items:center;
-justify-content:center;
-color:#60a5fa;
-font-size:20px;
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.1);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#60a5fa;
 }
 
+/* FORM */
 .contact-form{
-padding:50px;
+    padding:50px;
 }
 
 .contact-form h2{
-font-weight:700;
-margin-bottom:30px;
+    font-weight:700;
+    margin-bottom:25px;
 }
 
 .contact-form label{
-font-weight:600;
-margin-bottom:8px;
+    font-weight:600;
+    color:#cbd5e1;
 }
 
 .form-control{
-width:100%;
-border:1px solid #cbd5e1;
-border-radius:12px;
-padding:12px;
-margin-top:5px;
+    width:100%;
+    border:none;
+    border-radius:12px;
+    padding:12px;
+    margin-top:5px;
+    background:rgba(255,255,255,0.07);
+    color:white;
 }
 
 .form-control:focus{
-outline:none;
-border-color:#2563eb;
-box-shadow:0 0 0 3px rgba(37,99,235,.15);
+    outline:none;
+    box-shadow:0 0 0 3px rgba(99,102,241,.4);
 }
 
+/* BUTTON */
 .btn-send{
-width:100%;
-padding:14px;
-border:none;
-border-radius:12px;
-background:linear-gradient(135deg,#2563eb,#7c3aed);
-color:white;
-font-size:16px;
-font-weight:600;
-transition:.3s;
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:12px;
+    background:linear-gradient(135deg,#6366f1,#8b5cf6);
+    color:white;
+    font-size:16px;
+    font-weight:600;
+    transition:.3s;
 }
 
 .btn-send:hover{
-transform:translateY(-3px);
+    transform:translateY(-3px);
 }
 
-/* ACTIVITY */
-
+/* ACTIVITIES */
 .activity-section{
-padding:80px 0;
+    padding:80px 0;
 }
 
 .activity-card{
-background:white;
-border-radius:20px;
-padding:30px;
-text-align:center;
-box-shadow:0 10px 30px rgba(0,0,0,.08);
-transition:.3s;
-height:100%;
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:20px;
+    padding:30px;
+    text-align:center;
+    transition:.3s;
+    backdrop-filter:blur(10px);
 }
 
 .activity-card:hover{
-transform:translateY(-10px);
+    transform:translateY(-10px);
+    border-color:#6366f1;
 }
 
 .activity-icon{
-font-size:50px;
-color:#2563eb;
-margin-bottom:20px;
-}
-
-.activity-card h4{
-font-weight:700;
-margin-bottom:15px;
+    font-size:45px;
+    color:#6366f1;
+    margin-bottom:20px;
 }
 
 /* FOOTER */
-
 .footer{
-background:#0f172a;
-color:white;
-text-align:center;
-padding:25px;
-margin-top:50px;
-}
-
-.footer p{
-margin:0;
+    background:#0f172a;
+    text-align:center;
+    padding:20px;
+    margin-top:50px;
+    color:#94a3b8;
 }
 
 /* RESPONSIVE */
-
 @media(max-width:768px){
-
-
-.hero{
-    padding:80px 20px;
+    .hero h1{font-size:40px;}
+    .contact-info,.contact-form{padding:30px;}
 }
-
-.hero h1{
-    font-size:40px;
-}
-
-.contact-info,
-.contact-form{
-    padding:30px;
-}
-
-
-}
-
 </style>
 
-<!-- Hero -->
-
+<!-- HERO -->
 <section class="hero">
     <div class="container">
         <h1>Contact Us</h1>
-        <p class="lead">Let's Build Something Amazing Together</p>
+        <p>Let’s Build Something Powerful Together</p>
     </div>
 </section>
 
-<!-- Contact Section -->
-
+<!-- CONTACT -->
 <section class="contact-section">
-    <div class="container">
+<div class="container">
 
-```
-    <div class="row contact-card">
+<div class="row contact-card">
 
-        <div class="col-lg-4 contact-info">
+    <!-- LEFT -->
+    <div class="col-lg-4 contact-info">
 
-            <h3>Get In Touch</h3>
+        <h3>Get In Touch</h3>
 
-            <div class="info-item">
-                <i class="fas fa-phone"></i>
-                <div>
-                    <h6>Phone</h6>
-                    <p>+91 9876543210</p>
-                </div>
+        <div class="info-item">
+            <i class="fas fa-phone"></i>
+            <div>
+                <h6>Phone</h6>
+                <p>+91 9876543210</p>
             </div>
-
-            <div class="info-item">
-                <i class="fas fa-envelope"></i>
-                <div>
-                    <h6>Email</h6>
-                    <p>project400@gmail.com</p>
-                </div>
-            </div>
-
-            <div class="info-item">
-                <i class="fas fa-location-dot"></i>
-                <div>
-                    <h6>Location</h6>
-                    <p>Coimbatore, Tamil Nadu</p>
-                </div>
-            </div>
-
         </div>
 
-        <div class="col-lg-8 contact-form">
+        <div class="info-item">
+            <i class="fas fa-envelope"></i>
+            <div>
+                <h6>Email</h6>
+                <p>project400@gmail.com</p>
+            </div>
+        </div>
 
-            <h2>Send Message</h2>
-
-            <form method="POST">
-                {% csrf_token %}
-
-                <div class="mb-3">
-                    <label>Name</label>
-                    {{ form.name }}
-                </div>
-
-                <div class="mb-3">
-                    <label>Email</label>
-                    {{ form.email }}
-                </div>
-
-                <div class="mb-3">
-                    <label>Phone</label>
-                    {{ form.phone }}
-                </div>
-
-                <div class="mb-3">
-                    <label>Message</label>
-                    {{ form.message }}
-                </div>
-
-                <button type="submit" class="btn-send">
-                    <i class="fas fa-paper-plane"></i>
-                    Send Message
-                </button>
-
-            </form>
-
+        <div class="info-item">
+            <i class="fas fa-location-dot"></i>
+            <div>
+                <h6>Location</h6>
+                <p>Coimbatore, Tamil Nadu</p>
+            </div>
         </div>
 
     </div>
 
-</div>
-```
+    <!-- RIGHT -->
+    <div class="col-lg-8 contact-form">
 
+        <h2>Send Message</h2>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <div class="mb-3">
+                <label>Name</label>
+                {{ form.name }}
+            </div>
+
+            <div class="mb-3">
+                <label>Email</label>
+                {{ form.email }}
+            </div>
+
+            <div class="mb-3">
+                <label>Phone</label>
+                {{ form.phone }}
+            </div>
+
+            <div class="mb-3">
+                <label>Message</label>
+                {{ form.message }}
+            </div>
+
+            <button type="submit" class="btn-send">
+                <i class="fas fa-paper-plane"></i> Send Message
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+</div>
 </section>
 
-<!-- Activities -->
-
+<!-- ACTIVITIES -->
 <section class="activity-section">
-    <div class="container">
+<div class="container">
 
-```
-    <div class="text-center mb-5">
-        <h2 class="fw-bold">Our Activities</h2>
-        <p>Helping Creators & Clients Grow Together</p>
+<div class="text-center mb-5">
+    <h2 class="fw-bold">Our Activities</h2>
+    <p class="text-secondary">Helping Creators & Clients Grow Together</p>
+</div>
+
+<div class="row g-4">
+
+    <div class="col-md-4">
+        <div class="activity-card">
+            <div class="activity-icon">
+                <i class="fas fa-user-tie"></i>
+            </div>
+            <h4>Creator Profiles</h4>
+            <p>Build verified professional profiles.</p>
+        </div>
     </div>
 
-    <div class="row g-4">
-
-        <div class="col-md-4">
-            <div class="activity-card">
-                <div class="activity-icon">
-                    <i class="fas fa-user-tie"></i>
-                </div>
-                <h4>Creator Profiles</h4>
-                <p>Build verified professional creator profiles.</p>
+    <div class="col-md-4">
+        <div class="activity-card">
+            <div class="activity-icon">
+                <i class="fas fa-ranking-star"></i>
             </div>
+            <h4>Ranking System</h4>
+            <p>Earn ranks based on performance.</p>
         </div>
+    </div>
 
-        <div class="col-md-4">
-            <div class="activity-card">
-                <div class="activity-icon">
-                    <i class="fas fa-ranking-star"></i>
-                </div>
-                <h4>Ranking System</h4>
-                <p>Creators earn ranks through quality work.</p>
+    <div class="col-md-4">
+        <div class="activity-card">
+            <div class="activity-icon">
+                <i class="fas fa-briefcase"></i>
             </div>
+            <h4>Project Matching</h4>
+            <p>Connect clients with right creators.</p>
         </div>
-
-        <div class="col-md-4">
-            <div class="activity-card">
-                <div class="activity-icon">
-                    <i class="fas fa-briefcase"></i>
-                </div>
-                <h4>Project Matching</h4>
-                <p>Clients find the right creators easily.</p>
-            </div>
-        </div>
-
     </div>
 
 </div>
-```
 
+</div>
 </section>
 
-<footer class="footer">
-    <p>© 2026 Project 400. All Rights Reserved.</p>
-</footer>
+
 
 {% endblock %}

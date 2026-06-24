@@ -6,9 +6,17 @@
 
 /* =========================
 GOOGLE FONT
-========================= */
+=@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+:root{
+    --primary:#9f1239;
+    --secondary:#e11d48;
+    --accent:#f472b6;
+    --dark:#050505;
+    --card:#111111;
+    --text:#ffffff;
+    --muted:#cbd5e1;
+}
 
 *{
     margin:0;
@@ -18,22 +26,34 @@ GOOGLE FONT
 }
 
 body{
-    background:#020617;
+    background:
+    radial-gradient(circle at top right,
+    rgba(225,29,72,.15),
+    transparent 40%),
+    radial-gradient(circle at bottom left,
+    rgba(244,114,182,.08),
+    transparent 40%),
+    #050505;
     overflow-x:hidden;
 }
 
-/* =========================
+/* =================================
 HERO SECTION
-========================= */
+================================= */
 
 .hero-section{
     min-height:100vh;
     display:flex;
     align-items:center;
     padding:120px 0;
+
     background:
-    linear-gradient(rgba(2,6,23,.85),rgba(2,6,23,.95)),
+    linear-gradient(
+    rgba(0,0,0,.85),
+    rgba(74,0,31,.80)
+    ),
     url('https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1400');
+
     background-size:cover;
     background-position:center;
 }
@@ -43,13 +63,14 @@ HERO SECTION
     font-size:4rem;
     font-weight:800;
     line-height:1.2;
+    text-shadow:0 0 25px rgba(225,29,72,.35);
 }
 
 .hero-text{
-    color:#cbd5e1;
-    font-size:1.2rem;
+    color:#e2e8f0;
+    font-size:1.15rem;
+    line-height:1.9;
     margin-top:25px;
-    line-height:1.8;
 }
 
 .hero-btn{
@@ -58,7 +79,12 @@ HERO SECTION
     padding:14px 40px;
     border-radius:50px;
     text-decoration:none;
-    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    background:linear-gradient(
+    135deg,
+    #9f1239,
+    #e11d48,
+    #f472b6
+    );
     color:white;
     font-weight:600;
     margin-right:15px;
@@ -68,6 +94,8 @@ HERO SECTION
 .hero-btn:hover{
     transform:translateY(-5px);
     color:white;
+    box-shadow:
+    0 15px 35px rgba(225,29,72,.35);
 }
 
 .hero-btn-outline{
@@ -76,7 +104,7 @@ HERO SECTION
     padding:14px 40px;
     border-radius:50px;
     text-decoration:none;
-    border:2px solid white;
+    border:2px solid rgba(255,255,255,.3);
     color:white;
     font-weight:600;
     transition:.4s;
@@ -90,12 +118,13 @@ HERO SECTION
 .hero-image{
     width:100%;
     border-radius:30px;
-    box-shadow:0 20px 50px rgba(0,0,0,.5);
+    box-shadow:
+    0 25px 60px rgba(0,0,0,.6);
 }
 
-/* =========================
+/* =================================
 SECTION TITLE
-========================= */
+================================= */
 
 .section-title{
     color:white;
@@ -103,37 +132,41 @@ SECTION TITLE
     font-size:3rem;
     font-weight:800;
     margin-bottom:60px;
+    text-shadow:
+    0 0 20px rgba(225,29,72,.25);
 }
 
-/* =========================
+/* =================================
 PROFILE SECTION
-========================= */
+================================= */
 
 .profile-section{
     padding:100px 0;
 }
 
-/* =========================
-PROFILE CARD
-========================= */
-
 .profile-card{
     border:none;
     border-radius:30px;
     overflow:hidden;
-    background:rgba(255,255,255,.08);
-    backdrop-filter:blur(18px);
-    transition:.5s;
+    background:#111111;
+    border:1px solid rgba(244,114,182,.12);
+    transition:.4s;
 }
 
 .profile-card:hover{
-    transform:translateY(-15px);
-    box-shadow:0 20px 40px rgba(0,0,0,.4);
+    transform:translateY(-12px);
+    box-shadow:
+    0 0 35px rgba(225,29,72,.18);
 }
 
 .profile-cover{
     height:180px;
-    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    background:linear-gradient(
+    135deg,
+    #4a001f,
+    #9f1239,
+    #e11d48
+    );
 }
 
 .profile-img{
@@ -160,7 +193,12 @@ PROFILE CARD
     padding:12px 35px;
     border-radius:50px;
     margin-top:20px;
-    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    background:linear-gradient(
+    135deg,
+    #9f1239,
+    #e11d48,
+    #f472b6
+    );
     color:white;
     transition:.4s;
 }
@@ -169,23 +207,27 @@ PROFILE CARD
     transform:scale(1.05);
 }
 
-/* =========================
+/* =================================
 SERVICES
-========================= */
+================================= */
 
 .service-section{
     padding:100px 0;
-    background:#f8fafc;
+    background:#080808;
 }
 
 .service-card{
     border:none;
     border-radius:25px;
-    transition:.5s;
+    transition:.4s;
+    background:#111111;
+    color:white;
 }
 
 .service-card:hover{
     transform:translateY(-10px);
+    box-shadow:
+    0 0 30px rgba(225,29,72,.15);
 }
 
 .service-icon{
@@ -198,19 +240,34 @@ SERVICES
     justify-content:center;
     font-size:35px;
     color:white;
-    background:linear-gradient(135deg,#2563eb,#7c3aed);
+
+    background:linear-gradient(
+    135deg,
+    #9f1239,
+    #e11d48,
+    #f472b6
+    );
 }
 
-/* =========================
+.service-card p{
+    color:#cbd5e1 !important;
+}
+
+/* =================================
 CTA SECTION
-========================= */
+================================= */
 
 .cta-section{
     padding:100px 20px;
     text-align:center;
+
     background:
-    linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.8)),
+    linear-gradient(
+    rgba(0,0,0,.75),
+    rgba(74,0,31,.75)
+    ),
     url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1400');
+
     background-size:cover;
     background-position:center;
 }
@@ -223,7 +280,7 @@ CTA SECTION
 
 .cta-section p{
     color:#e2e8f0;
-    font-size:1.2rem;
+    font-size:1.15rem;
 }
 
 .cta-btn{
@@ -231,24 +288,41 @@ CTA SECTION
     margin-top:30px;
     padding:15px 45px;
     border-radius:50px;
-    background:linear-gradient(135deg,#2563eb,#7c3aed);
-    color:white;
     text-decoration:none;
+
+    background:linear-gradient(
+    135deg,
+    #9f1239,
+    #e11d48,
+    #f472b6
+    );
+
+    color:white;
     font-weight:600;
 }
 
-/* =========================
+.cta-btn:hover{
+    color:white;
+}
+
+/* =================================
 MODAL
-========================= */
+================================= */
 
 .modal-content{
     border:none;
     border-radius:30px;
     overflow:hidden;
+    background:#111111;
 }
 
 .modal-header{
-    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    background:linear-gradient(
+    135deg,
+    #4a001f,
+    #9f1239,
+    #e11d48
+    );
     color:white;
 }
 
@@ -261,15 +335,16 @@ MODAL
     margin-top:-80px;
 }
 
-/* =========================
-PROJECT
-========================= */
+/* =================================
+PROJECT BOX
+================================= */
 
 .project-box{
-    background:#0f172a;
+    background:#181818;
     border-radius:20px;
     overflow:hidden;
     margin-top:40px;
+    border:1px solid rgba(244,114,182,.1);
 }
 
 .project-box img,
@@ -289,18 +364,18 @@ PROJECT
     color:#cbd5e1;
 }
 
-/* =========================
+/* =================================
 FOOTER
-========================= */
+================================= */
 
 .footer{
-    padding:60px 20px;
+    padding:70px 20px;
     text-align:center;
-    background:black;
+    background:#000000;
 }
 
 .footer h3{
-    color:white;
+    color:#f472b6;
     font-weight:700;
 }
 
@@ -309,13 +384,13 @@ FOOTER
 }
 
 .footer a{
-    color:#60a5fa;
+    color:#f472b6;
     text-decoration:none;
 }
 
-/* =========================
+/* =================================
 RESPONSIVE
-========================= */
+================================= */
 
 @media(max-width:768px){
 
@@ -327,6 +402,12 @@ RESPONSIVE
         font-size:2rem;
     }
 
+    .hero-btn,
+    .hero-btn-outline{
+        display:block;
+        margin-bottom:15px;
+        text-align:center;
+    }
 }
 
 </style>

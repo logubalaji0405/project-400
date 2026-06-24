@@ -3,42 +3,44 @@
 {% block content %}
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
 /* ===== GLOBAL ===== */
-
 body{
-    background:#f8fafc;
+    background:#050505;
+    color:white;
     font-family:'Poppins',sans-serif;
 }
 
 /* ===== HERO ===== */
-
 .about-hero{
-    background:linear-gradient(135deg,#0d6efd,#6610f2);
+    background:linear-gradient(135deg,#000,#4a001f,#9f1239);
     color:#fff;
     padding:140px 0;
     position:relative;
     overflow:hidden;
+    text-align:center;
+}
+
+.about-hero::before,
+.about-hero::after{
+    content:'';
+    position:absolute;
+    border-radius:50%;
 }
 
 .about-hero::before{
-    content:'';
-    position:absolute;
     width:300px;
     height:300px;
-    background:rgba(255,255,255,.1);
-    border-radius:50%;
+    background:rgba(244,114,182,.10);
     top:-100px;
     right:-100px;
 }
 
 .about-hero::after{
-    content:'';
-    position:absolute;
     width:250px;
     height:250px;
-    background:rgba(255,255,255,.08);
-    border-radius:50%;
+    background:rgba(225,29,72,.12);
     bottom:-80px;
     left:-80px;
 }
@@ -50,18 +52,20 @@ body{
 .about-hero p{
     max-width:700px;
     margin:auto;
+    color:#e2e8f0;
 }
 
-/* ===== SECTION ===== */
-
+/* ===== SECTION TITLE ===== */
 .section-title{
     font-size:2.5rem;
     font-weight:800;
     margin-bottom:60px;
+    text-align:center;
+    color:white;
+    text-shadow:0 0 20px rgba(225,29,72,.25);
 }
 
-/* ===== ABOUT IMAGE ===== */
-
+/* ===== IMAGE ===== */
 .about-img{
     overflow:hidden;
     border-radius:25px;
@@ -70,51 +74,54 @@ body{
 .about-img img{
     width:100%;
     border-radius:25px;
-    transition:.5s;
+    transition:.5s ease;
 }
 
 .about-img:hover img{
     transform:scale(1.05);
 }
 
-/* ===== CARDS ===== */
+/* ===== TEXT ===== */
+.lead{ color:#cbd5e1; }
+p{ color:#94a3b8; }
 
+/* ===== CARDS ===== */
 .feature-card,
 .stat-card,
 .step-card{
     border:none;
-    border-radius:25px;
-    transition:.4s;
-    background:#fff;
+    border-radius:20px;
+    background:#111;
+    color:white;
+    border:1px solid rgba(244,114,182,.15);
+    transition:.35s ease;
 }
 
 .feature-card:hover,
 .stat-card:hover,
 .step-card:hover{
-    transform:translateY(-12px);
-    box-shadow:0 20px 40px rgba(0,0,0,.12);
+    transform:translateY(-10px);
+    box-shadow:0 10px 30px rgba(225,29,72,.25);
 }
 
-/* ===== STEP CARD ===== */
-
+/* ===== STEP ===== */
 .step-card h1{
-    font-size:3rem;
-    margin-bottom:15px;
+    font-size:2.5rem;
+    margin-bottom:10px;
 }
 
 /* ===== STATS ===== */
-
 .stat-card h2{
-    font-size:3rem;
+    font-size:2.8rem;
     font-weight:800;
+    color:#f472b6 !important;
 }
 
-/* ===== BENEFITS ===== */
-
+/* ===== FEATURE ===== */
 .feature-card{
-    font-size:18px;
+    font-size:16px;
     font-weight:600;
-    min-height:130px;
+    min-height:120px;
     display:flex;
     align-items:center;
     justify-content:center;
@@ -122,22 +129,18 @@ body{
 }
 
 /* ===== MISSION ===== */
-
 .mission-box{
-    background:#fff;
-    border-radius:30px;
+    background:#111;
+    border-radius:25px;
     padding:60px;
-    box-shadow:0 10px 30px rgba(0,0,0,.08);
-}
-
-.mission-box h2{
-    font-weight:800;
+    border:1px solid rgba(244,114,182,.15);
+    box-shadow:0 10px 30px rgba(0,0,0,.4);
 }
 
 /* ===== CTA ===== */
-
 .cta-section{
-    background:linear-gradient(135deg,#111827,#1f2937);
+    background:linear-gradient(135deg,#000,#4a001f,#9f1239);
+    text-align:center;
 }
 
 .cta-section h2{
@@ -148,7 +151,10 @@ body{
     padding:14px 40px;
     border-radius:50px;
     font-weight:600;
-    transition:.3s;
+    border:none;
+    background:linear-gradient(135deg,#9f1239,#e11d48,#f472b6);
+    color:white;
+    transition:.3s ease;
 }
 
 .cta-section .btn:hover{
@@ -156,385 +162,182 @@ body{
 }
 
 /* ===== ANIMATION ===== */
-
-.card,
 .about-img,
-.mission-box{
+.mission-box,
+.card{
     animation:fadeUp .8s ease;
 }
 
 @keyframes fadeUp{
-    from{
-        opacity:0;
-        transform:translateY(30px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
+    from{opacity:0; transform:translateY(30px);}
+    to{opacity:1; transform:translateY(0);}
 }
 
 /* ===== RESPONSIVE ===== */
-
 @media(max-width:768px){
-
-    .about-hero{
-        padding:100px 20px;
-    }
-
-    .about-hero h1{
-        font-size:2.5rem;
-    }
-
-    .section-title{
-        font-size:2rem;
-    }
-
-    .mission-box{
-        padding:30px;
-    }
-
+    .about-hero{ padding:100px 20px; }
+    .about-hero h1{ font-size:2.3rem; }
+    .section-title{ font-size:2rem; }
+    .mission-box{ padding:30px; }
 }
 </style>
 
 <!-- HERO -->
-
 <section class="about-hero">
-
-```
-<div class="container text-center">
-
-    <h1 class="display-3 fw-bold">
-        About Project 400
-    </h1>
-
-    <p class="lead mt-3">
-        Connecting Clients & Creators Through Skills, Rankings and Verified Work.
-    </p>
-
-</div>
-```
-
+    <div class="container">
+        <h1 class="display-3 fw-bold">About Project 400</h1>
+        <p class="lead mt-3">
+            Connecting Clients & Creators Through Skills, Rankings and Verified Work.
+        </p>
+    </div>
 </section>
 
 <!-- ABOUT -->
-
 <section class="py-5">
-
-```
 <div class="container">
-
     <div class="row align-items-center g-5">
 
         <div class="col-lg-6">
-
             <div class="about-img shadow">
                 <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200">
             </div>
-
         </div>
 
         <div class="col-lg-6">
-
-            <h2 class="fw-bold mb-4">
-                Connect Between Clients & Creators
-            </h2>
+            <h2 class="fw-bold mb-4">Connect Between Clients & Creators</h2>
 
             <p class="lead">
                 Project 400 is a professional platform designed to connect talented creators with businesses and brands.
             </p>
 
-            <p>
-                Creators can build official profiles, showcase portfolios, display achievements and gain visibility for their work.
-            </p>
-
-            <p>
-                Our ranking system rewards creators based on quality, consistency and project performance, helping top talent receive better opportunities.
-            </p>
-
-            <p>
-                Clients can confidently assign projects by exploring creator profiles, rankings and previous work before making decisions.
-            </p>
-
+            <p>Creators can build official profiles, showcase portfolios, and gain visibility.</p>
+            <p>Ranking system rewards quality and performance.</p>
+            <p>Clients can choose creators based on verified work and rankings.</p>
         </div>
 
     </div>
-
 </div>
-```
-
 </section>
 
 <!-- HOW IT WORKS -->
-
-<section class="bg-light py-5">
-
-```
+<section class="py-5">
 <div class="container">
+    <h2 class="section-title">How It Works</h2>
 
-    <h2 class="text-center section-title">
-        How It Works
-    </h2>
-
-    <div class="row g-4">
+    <div class="row g-4 text-center">
 
         <div class="col-md-3">
-
-            <div class="card step-card shadow text-center p-4">
-
+            <div class="step-card p-4">
                 <h1>1️⃣</h1>
-
                 <h5>Create Profile</h5>
-
-                <p>
-                    Build your official creator profile.
-                </p>
-
+                <p>Build your official creator profile.</p>
             </div>
-
         </div>
 
         <div class="col-md-3">
-
-            <div class="card step-card shadow text-center p-4">
-
+            <div class="step-card p-4">
                 <h1>2️⃣</h1>
-
                 <h5>Upload Portfolio</h5>
-
-                <p>
-                    Showcase your previous work and skills.
-                </p>
-
+                <p>Showcase your work and skills.</p>
             </div>
-
         </div>
 
         <div class="col-md-3">
-
-            <div class="card step-card shadow text-center p-4">
-
+            <div class="step-card p-4">
                 <h1>3️⃣</h1>
-
                 <h5>Earn Rankings</h5>
-
-                <p>
-                    Get ranked based on project quality.
-                </p>
-
+                <p>Get ranked based on quality.</p>
             </div>
-
         </div>
 
         <div class="col-md-3">
-
-            <div class="card step-card shadow text-center p-4">
-
+            <div class="step-card p-4">
                 <h1>4️⃣</h1>
-
                 <h5>Get Projects</h5>
-
-                <p>
-                    Receive opportunities from clients.
-                </p>
-
+                <p>Receive client opportunities.</p>
             </div>
-
         </div>
 
     </div>
-
 </div>
-```
-
 </section>
 
 <!-- STATS -->
-
 <section class="py-5">
-
-```
 <div class="container">
+    <h2 class="section-title">Platform Highlights</h2>
 
-    <h2 class="text-center section-title">
-        Platform Highlights
-    </h2>
-
-    <div class="row g-4">
+    <div class="row g-4 text-center">
 
         <div class="col-md-3">
-
-            <div class="card stat-card shadow text-center p-4">
-
-                <h2 class="text-primary">
-                    1000+
-                </h2>
-
-                <p>
-                    Registered Creators
-                </p>
-
+            <div class="stat-card p-4">
+                <h2>1000+</h2>
+                <p>Registered Creators</p>
             </div>
-
         </div>
 
         <div class="col-md-3">
-
-            <div class="card stat-card shadow text-center p-4">
-
-                <h2 class="text-primary">
-                    500+
-                </h2>
-
-                <p>
-                    Completed Projects
-                </p>
-
+            <div class="stat-card p-4">
+                <h2>500+</h2>
+                <p>Completed Projects</p>
             </div>
-
         </div>
 
         <div class="col-md-3">
-
-            <div class="card stat-card shadow text-center p-4">
-
-                <h2 class="text-primary">
-                    300+
-                </h2>
-
-                <p>
-                    Happy Clients
-                </p>
-
+            <div class="stat-card p-4">
+                <h2>300+</h2>
+                <p>Happy Clients</p>
             </div>
-
         </div>
 
         <div class="col-md-3">
-
-            <div class="card stat-card shadow text-center p-4">
-
-                <h2 class="text-primary">
-                    95%
-                </h2>
-
-                <p>
-                    Success Rate
-                </p>
-
+            <div class="stat-card p-4">
+                <h2>95%</h2>
+                <p>Success Rate</p>
             </div>
-
         </div>
 
     </div>
-
 </div>
-```
-
 </section>
 
-<!-- BENEFITS -->
-
-<section class="bg-light py-5">
-
-```
+<!-- FEATURES -->
+<section class="py-5">
 <div class="container">
-
-    <h2 class="text-center section-title">
-        Why Choose Project 400
-    </h2>
+    <h2 class="section-title">Why Choose Project 400</h2>
 
     <div class="row g-4">
 
-        <div class="col-md-4">
-            <div class="card feature-card shadow p-4">
-                👤 Official Creator Profiles
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="card feature-card shadow p-4">
-                ⭐ Performance Based Rankings
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="card feature-card shadow p-4">
-                📂 Verified Portfolio Showcase
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="card feature-card shadow p-4">
-                🚀 Better Opportunities
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="card feature-card shadow p-4">
-                🤝 Trusted Client Connections
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="card feature-card shadow p-4">
-                💼 Professional Growth
-            </div>
-        </div>
+        <div class="col-md-4"><div class="feature-card p-4">👤 Official Profiles</div></div>
+        <div class="col-md-4"><div class="feature-card p-4">⭐ Ranking System</div></div>
+        <div class="col-md-4"><div class="feature-card p-4">📂 Portfolio Showcase</div></div>
+        <div class="col-md-4"><div class="feature-card p-4">🚀 Better Opportunities</div></div>
+        <div class="col-md-4"><div class="feature-card p-4">🤝 Trusted Clients</div></div>
+        <div class="col-md-4"><div class="feature-card p-4">💼 Professional Growth</div></div>
 
     </div>
-
 </div>
-```
-
 </section>
 
 <!-- MISSION -->
-
 <section class="py-5">
-
-```
 <div class="container">
-
-    <div class="mission-box text-center shadow">
-
-        <h2 class="fw-bold mb-4">
-            Our Mission
-        </h2>
-
+    <div class="mission-box text-center">
+        <h2 class="fw-bold mb-4">Our Mission</h2>
         <p class="lead">
-            To build India's most trusted creator ecosystem where creators gain recognition, rankings and opportunities while helping clients discover the right talent.
+            To build India’s most trusted creator ecosystem with rankings, recognition, and real opportunities.
         </p>
-
     </div>
-
 </div>
-```
-
 </section>
 
 <!-- CTA -->
-
-<section class="cta-section text-white py-5">
-
-```
-<div class="container text-center">
-
-    <h2 class="fw-bold">
-        Ready To Join Project 400?
-    </h2>
-
-    <p class="lead mt-3">
-        Whether you're a creator or a client, start your journey today.
-    </p>
-
-    <a href="/contact/" class="btn btn-primary btn-lg">
-        Get Started
-    </a>
-
+<section class="cta-section py-5 text-white">
+<div class="container">
+    <h2>Ready To Join Project 400?</h2>
+    <p class="lead mt-3">Start your journey today.</p>
+    <a href="/contact/" class="btn btn-lg">Get Started</a>
 </div>
-```
-
 </section>
 
 {% endblock %}
